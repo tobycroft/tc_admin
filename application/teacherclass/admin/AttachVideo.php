@@ -5,8 +5,8 @@ namespace app\teacherclass\admin;
 
 use app\admin\controller\Admin;
 use app\common\builder\ZBuilder;
+use app\teacherclass\model\AttachModel;
 use app\teacherclass\model\SchoolGradeModel;
-use app\teacherclass\model\SchoolTermModel;
 use app\user\model\Role as RoleModel;
 use app\user\model\User;
 use think\Db;
@@ -31,14 +31,14 @@ class AttachVideo extends Admin
         $order = $this->getOrder("id asc");
         $map = $this->getMap();
         // 读取用户数据
-        $data_list = SchoolTermModel::where($map)
+        $data_list = AttachModel::where($map)
             ->order($order)
             ->paginate();
         $page = $data_list->render();
 //        $todaytime = date('Y-m-d H:i:s', strtotime(date("Y-m-d"), time()));
 
-//        $num1 = SchoolTermModel::where("date", ">", $todaytime)->count();
-//        $num2 = SchoolTermModel::count();
+//        $num1 = AttachModel::where("date", ">", $todaytime)->count();
+//        $num2 = AttachModel::count();
 
         return ZBuilder::make('table')
 //            ->setPageTips("总数量：" . $num2 . "    今日数量：" . $num1, 'danger')
@@ -98,7 +98,7 @@ class AttachVideo extends Admin
 
             $data['roles'] = isset($data['roles']) ? implode(',', $data['roles']) : '';
 
-            if ($user = SchoolTermModel::create($data)) {
+            if ($user = AttachModel::create($data)) {
                 Hook::listen('user_add', $user);
                 // 记录行为
                 action_log('user_add', 'admin_user', $user['id'], UID);
@@ -157,8 +157,8 @@ class AttachVideo extends Admin
             // 非超级管理需要验证可选择角色
 
 
-            if (SchoolTermModel::update($data)) {
-                $user = SchoolTermModel::get($data['id']);
+            if (AttachModel::update($data)) {
+                $user = AttachModel::get($data['id']);
                 // 记录行为
                 action_log('user_edit', 'user', $id, UID);
                 $this->success('编辑成功');
@@ -168,7 +168,7 @@ class AttachVideo extends Admin
         }
 
         // 获取数据
-        $info = SchoolTermModel::where('id', $id)
+        $info = AttachModel::where('id', $id)
             ->find();
 
         // 使用ZBuilder快速创建表单
@@ -415,19 +415,19 @@ class AttachVideo extends Admin
 
         switch ($type) {
             case 'enable':
-                if (false === SchoolTermModel::where('id', 'in', $ids)
+                if (false === AttachModel::where('id', 'in', $ids)
                         ->setField('status', 1)) {
                     $this->error('启用失败');
                 }
                 break;
             case 'disable':
-                if (false === SchoolTermModel::where('id', 'in', $ids)
+                if (false === AttachModel::where('id', 'in', $ids)
                         ->setField('status', 0)) {
                     $this->error('禁用失败');
                 }
                 break;
             case 'delete':
-                if (false === SchoolTermModel::where('id', 'in', $ids)
+                if (false === AttachModel::where('id', 'in', $ids)
                         ->delete()) {
                     $this->error('删除失败');
                 }
@@ -525,7 +525,7 @@ class AttachVideo extends Admin
                 $this->error('权限不足，没有可操作的用户');
             }
         }
-        $result = SchoolTermModel::where("id", $id)
+        $result = AttachModel::where("id", $id)
             ->setField($field, $value);
         if (false !== $result) {
             action_log('user_edit', 'user', $id, UID);
