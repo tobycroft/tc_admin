@@ -57,6 +57,7 @@ class AttachVideo extends Admin
                 ["text.edit", "url", "路径"],
                 ["text", "change_date", "修改时间"],
                 ["text", "date", "上传时间"],
+                ["switch", "is_verify", "是否通过审核"]
             ])
             ->addColumn('right_button', '操作', 'btn')
 //            ->addRightButton('edit') // 添加编辑按钮
