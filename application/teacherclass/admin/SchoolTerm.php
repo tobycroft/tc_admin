@@ -5,6 +5,7 @@ namespace app\teacherclass\admin;
 
 use app\admin\controller\Admin;
 use app\common\builder\ZBuilder;
+use app\teacherclass\model\SchoolGradeModel;
 use app\teacherclass\model\SchoolTermModel;
 use app\user\model\Role as RoleModel;
 use app\user\model\User;
@@ -103,7 +104,7 @@ class SchoolTerm extends Admin
         } else {
             $role_list = RoleModel::getTree(null, false);
         }
-        $grade_id = SchoolTermModel::column("id,name");
+        $grade_id = SchoolGradeModel::column("id,name");
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
             ->setPageTitle('新增') // 设置页面标题
