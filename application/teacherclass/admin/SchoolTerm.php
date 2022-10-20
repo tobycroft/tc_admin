@@ -103,11 +103,12 @@ class SchoolTerm extends Admin
         } else {
             $role_list = RoleModel::getTree(null, false);
         }
-
+        $grade_id = SchoolGradeModel::column("id,name");
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
             ->setPageTitle('新增') // 设置页面标题
             ->addFormItems([ // 批量添加表单项
+                ['select', 'grade_id', '年级id', '', $grade_id],
                 ['text', 'name', '学校名称', ''],
             ])
             ->fetch();
