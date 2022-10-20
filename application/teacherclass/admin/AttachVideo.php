@@ -7,6 +7,7 @@ use app\admin\controller\Admin;
 use app\common\builder\ZBuilder;
 use app\teacherclass\model\AttachModel;
 use app\teacherclass\model\SchoolGradeModel;
+use app\teacherclass\model\SchoolTermModel;
 use app\user\model\Role as RoleModel;
 use app\user\model\User;
 use think\Db;
@@ -39,7 +40,7 @@ class AttachVideo extends Admin
 
 //        $num1 = AttachModel::where("date", ">", $todaytime)->count();
 //        $num2 = AttachModel::count();
-
+        $term_list = SchoolTermModel::column("id,name");
         return ZBuilder::make('table')
 //            ->setPageTips("总数量：" . $num2 . "    今日数量：" . $num1, 'danger')
 //            ->setPageTips("总数量：" . $num2, 'danger')
@@ -51,7 +52,7 @@ class AttachVideo extends Admin
             ->addColumns([
                 ["type", "类型", "text.edit"],
                 ["category", "分类", "text.edit"],
-                ["term_id", "第几期", "text.edit"],
+                ["term_id", "第几期", "switch", "", $term_list],
                 ["title", "标题", "text.edit"],
                 ["content", "内容", "picture"],
                 ["url", "路径", "picture"],
