@@ -34,7 +34,9 @@ class AttachVideo extends Admin
         // 读取用户数据
         $data_list = AttachModel::where($map)
             ->order($order)
-            ->paginate();
+            ->paginate()->each(function ($item) {
+                
+            });
         $page = $data_list->render();
 //        $todaytime = date('Y-m-d H:i:s', strtotime(date("Y-m-d"), time()));
 
