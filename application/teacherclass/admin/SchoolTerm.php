@@ -110,6 +110,7 @@ class SchoolTerm extends Admin
             ->addFormItems([ // 批量添加表单项
                 ['select', 'grade_id', '年级id', '', $grade_id],
                 ['text', 'name', '学校名称', ''],
+                ['image', 'url', '上传二维码', ''],
             ])
             ->fetch();
     }
