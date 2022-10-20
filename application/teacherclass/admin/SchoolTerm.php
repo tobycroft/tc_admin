@@ -47,7 +47,8 @@ class SchoolTerm extends Admin
             ->setSearch(['area_id' => '区域ID']) // 设置搜索参数
             ->addOrder('id')
             ->addColumn('id', 'ID')
-            ->addColumn('name', '区域名称', 'text')
+            ->addColumn('grade_id', '年级id', 'text.edit')
+            ->addColumn('name', '第几期', 'text.edit')
             ->addColumn('right_button', '操作', 'btn')
 //            ->addRightButton('edit') // 添加编辑按钮
             ->addRightButton('delete') //添加删除按钮
