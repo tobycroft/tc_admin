@@ -58,8 +58,6 @@ class AttachVideo extends Admin
                 ["text", "change_date", "修改时间"],
                 ["text", "date", "上传时间"],
             ])
-            ->addColumn('grade_id', '年级id', 'text.edit')
-            ->addColumn('name', '第几期', 'text.edit')
             ->addColumn('right_button', '操作', 'btn')
 //            ->addRightButton('edit') // 添加编辑按钮
             ->addRightButton('delete') //添加删除按钮
