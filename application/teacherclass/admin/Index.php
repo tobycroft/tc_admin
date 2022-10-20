@@ -14,6 +14,7 @@ use app\user\model\Role as RoleModel;
 use app\user\model\User;
 use think\Db;
 use think\facade\Hook;
+use think\helper\Hash;
 use Tobycroft\AossSdk\Aoss;
 use util\Tree;
 
@@ -29,11 +30,22 @@ class Index extends Admin
      * @throws \think\Exception
      * @throws \think\exception\DbException
      */
+    /**
+     * 后台首页
+     * @return string
+     */
     public function index()
     {
-        // 获取排序
-       
+        $admin_pass = Db::name('admin_user')
+            ->where('id', 1)
+            ->value('password');
+
+        if (UID == 1 && $admin_pass && Hash::check('admin', $admin_pass)) {
+            $this->assign('default_pass', 1);
+        }
+        return $this->fetch();
     }
+
 
     /**
      * 新增
