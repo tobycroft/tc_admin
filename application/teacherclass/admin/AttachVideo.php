@@ -49,15 +49,16 @@ class AttachVideo extends Admin
             ->addOrder('id')
             ->addColumn('id', 'ID')
             ->addColumns([
-                ["text.edit", "type", "类型"],
-                ["text.edit", "category", "分类"],
-                ["text.edit", "term_id", "第几期"],
-                ["text.edit", "title", "标题"],
-                ["text.edit", "content", "内容"],
-                ["text.edit", "url", "路径"],
-                ["text", "change_date", "修改时间"],
-                ["text", "date", "上传时间"],
-                ["switch", "is_verify", "是否通过审核"]
+                ["type", "类型", "text.edit"],
+                ["category", "分类", "text.edit"],
+                ["term_id", "第几期", "text.edit"],
+                ["title", "标题", "text.edit"],
+                ["content", "内容", "text.edit"],
+                ["url", "路径", "text.edit"],
+                ["type", "类型", "text.edit"],
+                ["change_date", "修改时间", "text.edit"],
+                ["date", "上传时间", "text.edit"],
+                ["is_verify", "是否通过审核", 'switch']
             ])
             ->addColumn('right_button', '操作', 'btn')
 //            ->addRightButton('edit') // 添加编辑按钮
