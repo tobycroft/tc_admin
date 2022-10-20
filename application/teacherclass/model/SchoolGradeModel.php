@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\parentschool\model;
+namespace app\teacherclass\model;
 
 use think\Model;
 
