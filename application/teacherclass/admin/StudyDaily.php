@@ -21,7 +21,7 @@ use util\Tree;
  * 用户默认控制器
  * @package app\user\admin
  */
-class Index extends Admin
+class StudyDaily extends Admin
 {
     /**
      * 用户首页
@@ -32,7 +32,67 @@ class Index extends Admin
     public function index()
     {
         // 获取排序
-       
+        $order = $this->getOrder("id desc");
+        $map = $this->getMap();
+        // 读取用户数据
+        $data_list = StudyDailyModel::where($map)
+            ->order($order)
+            ->paginate()
+            ->each(function ($item, $key) {
+                $item["common_tag"] = StudyTagModel::alias("a")
+                    ->leftJoin(["ps_tag" => "b"], "a.tag_id=b.id")
+                    ->where("study_id", $item["id"])
+                    ->where("a.study_type", "daily")
+                    ->where("b.tag_type", "common")
+                    ->column("name");
+                $item["special_tag"] = StudyTagModel::alias("a")
+                    ->leftJoin(["ps_tag" => "b"], "a.tag_id=b.id")
+                    ->where("study_id", $item["id"])
+                    ->where("a.study_type", "daily")
+                    ->where("b.tag_type", "special")
+                    ->column("name");
+                $item["common_tag"] = join(",", $item["common_tag"]);
+                $item["special_tag"] = join(",", $item["special_tag"]);
+                return $item;
+            });
+
+        $page = $data_list->render();
+        $todaytime = date('Y-m-d H:i:s', strtotime(date("Y-m-d"), time()));
+
+        $num1 = StudyDailyModel::where("date", ">", $todaytime)
+            ->count();
+        $num2 = StudyDailyModel::count();
+
+        return ZBuilder::make('table')
+            ->setPageTips("总数量：" . $num2 . "    今日数量：" . $num1, 'danger')
+//            ->setPageTips("总数量：" . $num2, 'danger')
+            ->addTopButton("add")
+            ->setPageTitle('列表')
+            ->setSearch(['id' => 'ID', "title" => "标题", 'slogan' => 'slogan']) // 设置搜索参数
+            ->addOrder('id')
+            ->addColumns([['id', 'ID'], //                ['grade', '年级', 'number'],
+//                ['area_id', '对应区域', 'number'],
+//                ['school_id', '学校id', 'number'],
+                ['title', '标题'],
+                ['slogan', '推荐金句'],
+                ['special_tag', '特殊标签'],
+                ['common_tag', '特殊标签'], //                ['img', '小图头图', "picture"],
+//                ['img_intro', '简介图', "picture"],
+                ['from1', '内容来源1'],
+                ['from2', '内容来源2'], //                ['can_push', '是否可以推送', 'switch'],
+//                ['push_date', '推送日期', 'text.edit'],
+//                ['show_date', '展示日期', 'text.edit'],
+//                ['attach_type', '附件类型', 'text'],
+//                ['show_to', '展示给谁'],
+                ['attach_duration', '附件时长', 'number'],
+                ['change_date', '修改时间'],
+                ['date', '创建时间'],])
+            ->addColumn('right_button', '操作', 'btn')
+            ->addRightButton('edit') // 添加编辑按钮
+            ->addRightButton('delete') //添加删除按钮
+            ->setRowList($data_list) // 设置表格数据
+            ->setPages($page)
+            ->fetch();
     }
 
     /**
