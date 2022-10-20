@@ -54,7 +54,7 @@ class AttachVideo extends Admin
                 ["term_id", "第几期", "text.edit"],
                 ["title", "标题", "text.edit"],
                 ["content", "内容", "text.edit"],
-                ["url", "路径", "pic"],
+                ["url", "路径", "picture"],
                 ["type", "类型", "text.edit"],
                 ["change_date", "修改时间", "text.edit"],
                 ["date", "上传时间", "text.edit"],
