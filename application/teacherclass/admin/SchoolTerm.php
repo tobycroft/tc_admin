@@ -160,6 +160,7 @@ class SchoolTerm extends Admin
         // 获取数据
         $info = SchoolTermModel::where('id', $id)
             ->find();
+        $grade_id = SchoolGradeModel::column('id,name');
 
         // 使用ZBuilder快速创建表单
         $data = ZBuilder::make('form')
