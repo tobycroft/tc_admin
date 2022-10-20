@@ -14,11 +14,11 @@
  */
 return [
     // 模块名[必填]
-    'name' => 'anymodule',
+    'name' => 'teacherclass',
     // 模块标题[必填]
-    'title' => 'anymodule',
+    'title' => 'teacherclass',
     // 模块唯一标识[必填]，格式：模块名.开发者标识.module
-    'identifier' => 'anymodule.anymodule.module',
+    'identifier' => 'teacherclass.teacherclass.module',
     // 模块图标[选填]
     'icon' => 'fa fa-fw fa-newspaper-o',
     // 模块描述[选填]
