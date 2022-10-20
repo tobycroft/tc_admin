@@ -5,6 +5,7 @@ namespace app\install\controller;
 
 use think\Controller;
 use think\Db;
+use think\facade\Env;
 
 define('INSTALL_APP_PATH', realpath('./') . '/');
 
@@ -21,7 +22,6 @@ class Index extends Controller
     {
         $this->assign('static_dir', 'static/');
     }
-
 
     /**
      * 安装首页
