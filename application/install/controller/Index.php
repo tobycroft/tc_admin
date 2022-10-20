@@ -22,6 +22,7 @@ class Index extends Controller
         $this->assign('static_dir', 'static/');
     }
 
+
     /**
      * 安装首页
      */
