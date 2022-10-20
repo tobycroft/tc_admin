@@ -48,8 +48,6 @@ class SchoolGrade extends Admin
             ->addOrder('id')
             ->addColumn('id', 'ID')
             ->addColumn('name', '区域名称', 'text')
-            ->addColumn('change_date', '修改时间')
-            ->addColumn('date', '创建时间')
             ->addColumn('right_button', '操作', 'btn')
 //            ->addRightButton('edit') // 添加编辑按钮
             ->addRightButton('delete') //添加删除按钮
