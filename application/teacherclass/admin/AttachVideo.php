@@ -32,10 +32,10 @@ class AttachVideo extends Admin
         $order = $this->getOrder("id asc");
         $map = $this->getMap();
         // 读取用户数据
-        $data_list = AttachModel::where($map)
+        $data_list = AttachModel::where($map)->where("type", "风采")
             ->order($order)
             ->paginate()->each(function ($item) {
-                
+
             });
         $page = $data_list->render();
 //        $todaytime = date('Y-m-d H:i:s', strtotime(date("Y-m-d"), time()));
