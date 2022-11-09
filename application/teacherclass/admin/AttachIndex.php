@@ -32,7 +32,7 @@ class AttachIndex extends Admin
         $order = $this->getOrder("id asc");
         $map = $this->getMap();
         // 读取用户数据
-        $data_list = AttachModel::where($map)->where("type", "视频")
+        $data_list = AttachModel::where($map)->where("type", "首页")
             ->order($order)
             ->paginate()->each(function ($item) {
 
