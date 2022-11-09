@@ -55,8 +55,8 @@ class AttachIndex extends Admin
                 ["category", "分类", "select", "", ["小学", "初中", "高中"]],
                 ["term_id", "第几期", "select", 0],
                 ["title", "标题", "text.edit"],
-                ["content", "内容", "picture"],
-                ["url", "路径", "picture"],
+                ["content", "内容", "text"],
+                ["url", "路径", "text"],
                 ["change_date", "修改时间", "text.edit"],
                 ["date", "上传时间", "text.edit"],
                 ["is_verify", "是否通过审核", 'switch']
