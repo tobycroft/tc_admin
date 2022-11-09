@@ -57,7 +57,6 @@ class AttachIndex extends Admin
                 ["title", "标题", "text.edit"],
                 ["content", "内容", "picture"],
                 ["url", "路径", "picture"],
-                ["type", "类型", "text.edit"],
                 ["change_date", "修改时间", "text.edit"],
                 ["date", "上传时间", "text.edit"],
                 ["is_verify", "是否通过审核", 'switch']
