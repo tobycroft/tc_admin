@@ -183,7 +183,7 @@ class AttachIndex extends Admin
             ->addFormItems([ // 批量添加表单项
                 ['hidden', 'id'],
                 ['text', 'type', '类型', ''],
-                ['text', 'category', '分类', ''],
+                ['select', 'category', '分类', '', ['小学', '初中', '高中']],
                 ['text', 'term_id', '第几期', ''],
                 ['text', 'title', '标题', ''],
                 ['file', 'content', '内容', ''],
