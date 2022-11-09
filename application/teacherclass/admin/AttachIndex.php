@@ -120,7 +120,7 @@ class AttachIndex extends Admin
         return ZBuilder::make('form')
             ->setPageTitle('新增') // 设置页面标题
             ->addFormItems([ // 批量添加表单项
-                ['text', 'type', '类型', ''],
+                ['text', 'type', '类型', '', '首页'],
 //                ['text', 'category', '分类', ''],
                 ['select', 'category', '分类', '', ['小学', '初中', '高中']],
                 ['text', 'term_id', '第几期', ''],
@@ -182,7 +182,7 @@ class AttachIndex extends Admin
             ->setPageTitle('编辑') // 设置页面标题
             ->addFormItems([ // 批量添加表单项
                 ['hidden', 'id'],
-                ['text', 'type', '类型', ''],
+                ['text', 'type', '类型', '', "首页"],
                 ['select', 'category', '分类', '', ['小学', '初中', '高中']],
                 ['text', 'term_id', '第几期', ''],
                 ['text', 'title', '标题', ''],
