@@ -181,7 +181,7 @@ class AttachIndex extends Admin
             ->setPageTitle('编辑') // 设置页面标题
             ->addFormItems([ // 批量添加表单项
                 ['hidden', 'id'],
-                ['text', 'type', '类型', '', "首页"],
+                ['text', 'type', '类型', ''],
                 ['select', 'category', '分类', '', ['小学', '初中', '高中']],
                 ['text', 'title', '标题', ''],
                 ['file', 'content', '内容', ''],
