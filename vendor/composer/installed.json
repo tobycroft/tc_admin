@@ -66,17 +66,17 @@
         },
         {
             "name": "tobycroft/aoss-sdk",
-            "version": "v1.5.3",
-            "version_normalized": "1.5.3.0",
+            "version": "v1.6.3",
+            "version_normalized": "1.6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tobycroft/AossSdk.git",
-                "reference": "c05d22650f3942a4ce3e2f063fc4d6cb19f1f5de"
+                "reference": "3fd72c5aa05391236196333783d8c54d6888aa0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tobycroft/AossSdk/zipball/c05d22650f3942a4ce3e2f063fc4d6cb19f1f5de",
-                "reference": "c05d22650f3942a4ce3e2f063fc4d6cb19f1f5de",
+                "url": "https://api.github.com/repos/tobycroft/AossSdk/zipball/3fd72c5aa05391236196333783d8c54d6888aa0e",
+                "reference": "3fd72c5aa05391236196333783d8c54d6888aa0e",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "ext-gd": "*",
                 "php": ">=8.0"
             },
-            "time": "2022-10-14T09:12:54+00:00",
+            "time": "2022-10-31T03:02:59+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -102,30 +102,24 @@
             "description": "AOSS is a private platform support OSS upload,ExcelToJson,Image canvas,Gen Wechat code,Gen qrcode,Gen barcode",
             "support": {
                 "issues": "https://github.com/tobycroft/AossSdk/issues",
-                "source": "https://github.com/tobycroft/AossSdk/tree/v1.5.3"
+                "source": "https://github.com/tobycroft/AossSdk/tree/v1.6.3"
             },
             "install-path": "../tobycroft/aoss-sdk"
         },
         {
             "name": "topthink/framework",
-            "version": "v5.1.41",
-            "version_normalized": "5.1.41.0",
+            "version": "v5.1.42",
+            "version_normalized": "5.1.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/top-think/framework.git",
-                "reference": "7137741a323a4a60cfca334507cd1812fac91bb2"
+                "reference": "ecf1a90d397d821ce2df58f7d47e798c17eba3ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/top-think/framework/zipball/7137741a323a4a60cfca334507cd1812fac91bb2",
-                "reference": "7137741a323a4a60cfca334507cd1812fac91bb2",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "url": "https://api.github.com/repos/top-think/framework/zipball/ecf1a90d397d821ce2df58f7d47e798c17eba3ad",
+                "reference": "ecf1a90d397d821ce2df58f7d47e798c17eba3ad",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
@@ -140,7 +134,7 @@
                 "sebastian/phpcpd": "2.*",
                 "squizlabs/php_codesniffer": "2.*"
             },
-            "time": "2021-01-11T02:51:29+00:00",
+            "time": "2022-10-25T15:04:49+00:00",
             "type": "think-framework",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -166,7 +160,7 @@
             ],
             "support": {
                 "issues": "https://github.com/top-think/framework/issues",
-                "source": "https://github.com/top-think/framework/tree/v5.1.41"
+                "source": "https://github.com/top-think/framework/tree/v5.1.42"
             },
             "install-path": "../../thinkphp"
         },

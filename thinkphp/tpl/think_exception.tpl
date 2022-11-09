@@ -489,13 +489,13 @@
             var err_line = $('.line-' + LINE, ol[0])[0];
             err_line.className = err_line.className + ' line-error';
 
-            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+            $.getScript('//cdn.bootcdn.net/ajax/libs/prettify/r298/prettify.min.js', function () {
                 prettyPrint();
 
                 // 解决Firefox浏览器一个很诡异的问题
                 // 当代码高亮后，ol的行号莫名其妙的错位
                 // 但是只要刷新li里面的html重新渲染就没有问题了
-                if(window.navigator.userAgent.indexOf('Firefox') >= 0){
+                if (window.navigator.userAgent.indexOf('Firefox') >= 0) {
                     ol[0].innerHTML = ol[0].innerHTML;
                 }
             });

@@ -160,13 +160,14 @@ class Attachment extends Admin
         if ($file->getMime() == 'text/x-php' || $file->getMime() == 'text/html') {
             $error_msg = '禁止上传非法文件！';
         }
-        if (preg_grep('/php/i', $ext_limit)) {
-            $error_msg = '禁止上传非法文件！';
+        if ($ext_limit) {
+            if (preg_grep('/php/i', $ext_limit)) {
+                $error_msg = '禁止上传非法文件！';
+            }
+            if (!preg_grep("/$file_ext/i", $ext_limit)) {
+                $error_msg = '附件类型不正确！';
+            }
         }
-        if (!preg_grep("/$file_ext/i", $ext_limit)) {
-            $error_msg = '附件类型不正确！';
-        }
-
         if ($error_msg != '') {
             // 上传错误
             return $this->uploadError($from, $error_msg, $callback);
