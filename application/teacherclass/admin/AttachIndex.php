@@ -6,7 +6,6 @@ namespace app\teacherclass\admin;
 use app\admin\controller\Admin;
 use app\common\builder\ZBuilder;
 use app\teacherclass\model\AttachModel;
-use app\teacherclass\model\SchoolGradeModel;
 use app\teacherclass\model\SchoolTermModel;
 use app\user\model\Role as RoleModel;
 use app\user\model\User;
@@ -117,13 +116,13 @@ class AttachIndex extends Admin
         } else {
             $role_list = RoleModel::getTree(null, false);
         }
-        $grade_id = SchoolGradeModel::column("id,name");
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
             ->setPageTitle('新增') // 设置页面标题
             ->addFormItems([ // 批量添加表单项
                 ['text', 'type', '类型', ''],
-                ['text', 'category', '分类', ''],
+//                ['text', 'category', '分类', ''],
+                ['select', 'category', '分类', '', ['小学', '初中', '高中']],
                 ['text', 'term_id', '第几期', ''],
                 ['text', 'title', '标题', ''],
                 ['file', 'content', '内容', ''],
