@@ -51,7 +51,7 @@ class AttachIndex extends Admin
             ->addOrder('id')
             ->addColumn('id', 'ID')
             ->addColumns([
-                ["type", "类型", "text.edit"],
+//                ["type", "类型", "text.edit"],
                 ["category", "分类", "select", "", ["小学", "初中", "高中"]],
                 ["term_id", "第几期", "select", 0],
                 ["title", "标题", "text.edit"],
