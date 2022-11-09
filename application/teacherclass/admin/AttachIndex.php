@@ -53,8 +53,8 @@ class AttachIndex extends Admin
             ->addColumn('id', 'ID')
             ->addColumns([
                 ["type", "类型", "text.edit"],
-                ["category", "分类", "text.edit"],
-                ["term_id", "第几期", "select", $term_list],
+                ["category", "分类", "select", "", ["小学", "初中", "高中"]],
+                ["term_id", "第几期", "select", 0],
                 ["title", "标题", "text.edit"],
                 ["content", "内容", "picture"],
                 ["url", "路径", "picture"],
