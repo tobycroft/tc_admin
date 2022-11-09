@@ -233,7 +233,7 @@ class Attachment extends Admin
             }
             if (!$md5_data->isSuccess()) {
                 $send_ret = $Aoss->send($info->getPathname(), $info->getMime(), $file_name);
-                if ($send_ret->isSuccess()) {
+                if (!$send_ret->isSuccess()) {
                     return $this->uploadError($from, $send_ret->getError(), $callback);
                 }
             } else {
