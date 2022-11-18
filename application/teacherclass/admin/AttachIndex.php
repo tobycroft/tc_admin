@@ -123,7 +123,7 @@ class AttachIndex extends Admin
                 ['select', 'category', '分类', '', ['小学' => '小学', '初中' => '初中', '高中' => '高中']],
                 ['text', 'title', '标题', ''],
                 ['file', 'content', '内容', ''],
-                ['file', 'url', '上传文件', ''],
+                ['text', 'url', '上传文件', ''],
                 ["switch", 'is_verify', '是否通过审核']
             ])
             ->fetch();
@@ -183,7 +183,8 @@ class AttachIndex extends Admin
                 ['select', 'category', '分类', '', ['小学' => '小学', '初中' => '初中', '高中' => '高中']],
                 ['text', 'title', '标题', ''],
                 ['file', 'content', '内容', ''],
-                ['file', 'url', '上传文件', ''],
+//                ['file', 'url', '上传文件', ''],
+                ['text', 'url', '上传文件', ''],
                 ['is_verify', '是否通过审核', 'switch', 'on']
             ]);
         return $data
