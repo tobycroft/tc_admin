@@ -98,6 +98,7 @@ class AttachIndex extends Admin
             }
 
             $data['roles'] = isset($data['roles']) ? implode(',', $data['roles']) : '';
+            $data['is_verify'] = $data['is_verify'] == 'on';
 
             if ($user = AttachModel::create($data)) {
                 Hook::listen('user_add', $user);
@@ -153,12 +154,14 @@ class AttachIndex extends Admin
             }
         }
 
+
         // 保存数据
         if ($this->request->isPost()) {
             $data = $this->request->post();
 
             // 非超级管理需要验证可选择角色
 
+            $data['is_verify'] = $data['is_verify'] == 'on';
 
             if (AttachModel::update($data)) {
                 $user = AttachModel::get($data['id']);
