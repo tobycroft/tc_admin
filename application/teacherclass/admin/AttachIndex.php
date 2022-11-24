@@ -125,7 +125,7 @@ class AttachIndex extends Admin
                 ['text', 'title', '标题', ''],
                 ['file', 'content', '内容', ''],
                 ['text', 'url', '上传文件', ''],
-                ["switch", 'is_verify', '是否通过审核']
+//                ["switch", 'is_verify', '是否通过审核']
             ])
             ->fetch();
     }
