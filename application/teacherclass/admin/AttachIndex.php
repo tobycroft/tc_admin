@@ -99,7 +99,8 @@ class AttachIndex extends Admin
             }
 
             $data['roles'] = isset($data['roles']) ? implode(',', $data['roles']) : '';
-            $data['is_verify'] = $data['is_verify'] == 'on';
+            $data['is_verify'] = !empty($data['is_verify']);
+//            $data['is_verify'] = !empty($data['is_verify']);
 
             if ($user = AttachModel::create($data)) {
                 Hook::listen('user_add', $user);
@@ -126,7 +127,7 @@ class AttachIndex extends Admin
                 ['text', 'title', '标题', ''],
                 ['file', 'content', '内容', ''],
                 ['text', 'url', '上传文件', ''],
-//                ["switch", 'is_verify', '是否通过审核']
+                ["switch", 'is_verify', '是否通过审核']
             ])
             ->fetch();
     }
@@ -162,7 +163,7 @@ class AttachIndex extends Admin
 
             // 非超级管理需要验证可选择角色
 
-            $data['is_verify'] = $data['is_verify'] == 'on';
+            $data['is_verify'] = !empty($data['is_verify']);
 
             if (AttachModel::update($data)) {
                 $user = AttachModel::get($data['id']);

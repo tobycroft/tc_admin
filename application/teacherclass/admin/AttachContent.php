@@ -101,7 +101,7 @@ class AttachContent extends Admin
             }
 
             $data['roles'] = isset($data['roles']) ? implode(',', $data['roles']) : '';
-            $data['is_verify'] = $data['is_verify'] == 'on';
+            $data['is_verify'] = !empty($data['is_verify']);
 
             if ($user = AttachModel::create($data)) {
                 Hook::listen('user_add', $user);
@@ -165,7 +165,7 @@ class AttachContent extends Admin
 
             // 非超级管理需要验证可选择角色
 
-            $data['is_verify'] = $data['is_verify'] == 'on';
+            $data['is_verify'] = !empty($data['is_verify']);
 
 
             if (AttachModel::update($data)) {
