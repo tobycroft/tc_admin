@@ -110,8 +110,8 @@ class SchoolTerm extends Admin
             ->setPageTitle('新增') // 设置页面标题
             ->addFormItems([ // 批量添加表单项
                 ['select', 'grade_id', '年级id', '', $grade_id],
-                ['text', 'name', '学校名称', ''],
-                ['image', 'url', '上传二维码', ''],
+                ['text', 'name', '第几期', ''],
+//                ['image', 'url', '上传二维码', ''],
             ])
             ->fetch();
     }
@@ -168,8 +168,8 @@ class SchoolTerm extends Admin
             ->addFormItems([ // 批量添加表单项
                 ['hidden', 'id'],
                 ['select', 'grade_id', '年级id', '', $grade_id],
-                ['text', 'name', '学校名称', ''],
-                ['image', 'url', '上传二维码', ''],
+                ['text', 'name', '第几期', ''],
+//                ['image', 'url', '上传二维码', ''],
             ]);
         return $data
             ->setFormData($info) // 设置表单数据
